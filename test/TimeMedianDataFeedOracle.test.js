@@ -113,14 +113,6 @@ contract('TimeMedianDataFeed', (accounts) => {
         'start date not within  date range'
       )
     })
-
-    it('emits a Medianized event with the correct values', async () => {
-      const { logs } = await await dataFeed.medianizeByTimeframe(DATE_1 - 60, DATE_10)
-      expect(logs[0].event).to.equal('MedianizedByTimeframe')
-      expect(logs[0].args.startDate.toNumber()).to.equal(DATE_1 - 60)
-      expect(logs[0].args.endDate.toNumber()).to.equal(DATE_10)
-      expect(logs[0].args.median).to.equal(uintToBytes32(RESULT_6))
-    })
   })
 
   describe('medianizeByDates', () => {
@@ -153,13 +145,6 @@ contract('TimeMedianDataFeed', (accounts) => {
         dataFeed.medianizeByDates.call([DATE_1, DATE_2]),
         'dates must be in order'
       )
-    })
-
-    it('emits a Medianized event with the correct values', async () => {
-      let orderedDates = [DATE_5, DATE_3, DATE_1, DATE_7, DATE_8]
-      const { logs } = await await dataFeed.medianizeByDates(orderedDates)
-      expect(logs[0].event).to.equal('MedianizedByOrderedDates')
-      expect(logs[0].args.median).to.equal(uintToBytes32(RESULT_5))
     })
   })
 })
