@@ -35,6 +35,17 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
       }
     }
 
+    medianValue = medianizeByIndices(startIndex, endIndex);
+  }
+
+  function medianizeByIndices(uint startIndex, uint endIndex)
+    public
+    view
+    returns (bytes32 medianValue)
+  {
+    require(startIndex <= endIndex, 'startIndex must be less than or equal to endIndex');
+    require(startIndex > 0, 'startIndex must be greater than 0');
+
     uint[] memory selectedDates = _sliceDatesArray(startIndex, endIndex);
     uint[] memory partitionedDates = _partitionDatesByResult(selectedDates);
     medianValue = _medianizeByDates(partitionedDates);

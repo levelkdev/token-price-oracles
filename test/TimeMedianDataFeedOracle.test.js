@@ -115,6 +115,25 @@ contract('TimeMedianDataFeed', (accounts) => {
     })
   })
 
+  describe('medianizeByIndices', () => {
+    it('finds the correct median for an odd array', async () => {
+      let result = await dataFeed.medianizeByIndices.call(1, 5)
+      expect(result).to.equal(uintToBytes32(RESULT_3))
+    })
+
+    it('finds the correct median for an even array', async () => {
+      let result = await dataFeed.medianizeByIndices.call(2, 7)
+      expect(result).to.equal(uintToBytes32(RESULT_4))
+    })
+
+    it('reverts startIndex is less than endIndex', async () => {
+      await expectRevert.unspecified(
+        dataFeed.medianizeByIndices.call(5, 3),
+        'indices must be in order'
+      )
+    })
+  })
+
   describe('medianizeByDates', () => {
     it('finds the correct median for an odd array', async () => {
       let result = await dataFeed.medianizeByDates.call([DATE_5, DATE_3, DATE_1, DATE_7, DATE_8])
