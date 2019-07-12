@@ -1,6 +1,6 @@
 pragma solidity >=0.4.24;
 
-import "@aragon/os/contracts/lib/math/SafeMath.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
 import "./IExchangeAdapter.sol";
 import "./Uniswap/UniswapExchangeInterface.sol";
