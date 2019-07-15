@@ -51,10 +51,11 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
     medianValue = _medianizeByDates(partitionedDates);
   }
 
-  // Private Functions
+  // Internal Functions
 
   function _medianizeByDates(uint[] orderedDates)
-    private
+    internal
+    view
     returns (bytes32 medianValue)
   {
     uint middleIndex = orderedDates.length / 2;
@@ -67,7 +68,7 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
   *      checkpoints in even-sized arrays instead of the average.
   */
   function _partitionDatesByResult(uint[] selectedDates)
-    private
+    internal
     view
     returns (uint[])
   {
@@ -100,7 +101,8 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
   }
 
   function _sliceDatesArray(uint startIndex, uint endIndex)
-    private
+    internal
+    view
     returns (uint[])
   {
     uint length = endIndex - startIndex + 1;
@@ -114,7 +116,8 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
   }
 
   function _isLessThan(uint date1, uint date2)
-    private
+    internal
+    view
     returns (bool)
   {
     return uint(results[date1]) < uint(results[date2]);
