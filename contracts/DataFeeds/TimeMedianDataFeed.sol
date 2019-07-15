@@ -6,8 +6,6 @@ import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 contract TimeMedianDataFeed is DataFeedOracleBase {
   using SafeMath for uint;
 
-  mapping(uint => bool) dateAlreadyAccountedFor; // transitory data structure useful only during function call medianizeByDates
-
   function medianizeByTimeframe(uint startDate, uint endDate)
     public
     view
