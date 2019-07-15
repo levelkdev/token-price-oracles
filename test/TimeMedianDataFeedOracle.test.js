@@ -133,37 +133,4 @@ contract('TimeMedianDataFeed', (accounts) => {
       )
     })
   })
-
-  describe('medianizeByDates', () => {
-    it('finds the correct median for an odd array', async () => {
-      let result = await dataFeed.medianizeByDates.call([DATE_5, DATE_3, DATE_1, DATE_7, DATE_8])
-      expect(result).to.equal(uintToBytes32(RESULT_5))
-    })
-
-    it('finds the correct median for even array', async () => {
-      let result = await dataFeed.medianizeByDates.call([DATE_5, DATE_3, DATE_6, DATE_7, DATE_8, DATE_10])
-      expect(result).to.equal(uintToBytes32(RESULT_7))
-    })
-
-    it('reverts if date has no result', async () => {
-      await expectRevert.unspecified(
-        dataFeed.medianizeByDates.call([DATE_2, DATE_1 + 60]),
-        'all exat dates must have a recorded result'
-      )
-    })
-
-    it('reverts if duplicates given', async () => {
-      await expectRevert.unspecified(
-        dataFeed.medianizeByDates.call([DATE_2, DATE_2]),
-        'duplicate dates cannot be given'
-      )
-    })
-
-    it('reverts if dates are not ordered', async () => {
-      await expectRevert.unspecified(
-        dataFeed.medianizeByDates.call([DATE_1, DATE_2]),
-        'dates must be in order'
-      )
-    })
-  })
 })

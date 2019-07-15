@@ -51,29 +51,6 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
     medianValue = _medianizeByDates(partitionedDates);
   }
 
-  function medianizeByDates(uint[] orderedDates)
-    public
-    view
-    returns (bytes32 medianValue)
-  {
-    for (uint i = 0; i < orderedDates.length; i++) {
-      uint date = orderedDates[i];
-      require(isResultSetFor(date), "Date not set.");
-      require(!dateAlreadyAccountedFor[date], 'Date cannot be a duplicate');
-      dateAlreadyAccountedFor[orderedDates[i]] = true;
-      if (i != orderedDates.length - 1) {
-        require(uint(results[date]) <= uint(results[orderedDates[i+1]]), "The dates are not sorted by result.");
-      }
-    }
-
-    // reset dataFeedAlreadyRecorded
-    for(uint j=0; j < orderedDates.length; j++) {
-      dateAlreadyAccountedFor[orderedDates[j]] = false;
-    }
-
-    medianValue = _medianizeByDates(orderedDates);
-  }
-
   // Private Functions
 
   function _medianizeByDates(uint[] orderedDates)
