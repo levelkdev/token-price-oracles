@@ -1,7 +1,6 @@
 pragma solidity >=0.4.24;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
 import "./IExchangeAdapter.sol";
 import "./Uniswap/UniswapExchangeInterface.sol";
 import "./Uniswap/UniswapFactoryInterface.sol";
@@ -9,21 +8,17 @@ import "./Uniswap/UniswapFactoryInterface.sol";
 contract UniswapAdapter is IExchangeAdapter {
   using SafeMath for uint;
 
-  event PriceCalculated(uint price, address token1, address token2);
-
   UniswapFactoryInterface public uniswapFactory;
 
-  constructor(address _uniswapFactory) public {
-    uniswapFactory = UniswapFactoryInterface(_uniswapFactory);
+  constructor(UniswapFactoryInterface _uniswapFactory) public {
+    uniswapFactory = _uniswapFactory;
   }
 
-  function ping(address token1, address token2) public {
-    uint price = calculateTokenPrice(token1, token2);
-    DataFeedOracleBase dataFeed = DataFeedOracleBase(msg.sender);
-    dataFeed.setResult(bytes32(price), uint256(block.timestamp));
-  }
-
-  function calculateTokenPrice(address token1, address token2) public returns (uint price) {
+  function getPriceForTokenPair(address token1, address token2)
+    public
+    view
+    returns (uint price)
+  {
     UniswapExchangeInterface token1Exchange = UniswapExchangeInterface(uniswapFactory.getExchange(token1));
     UniswapExchangeInterface token2Exchange = UniswapExchangeInterface(uniswapFactory.getExchange(token2));
 
@@ -32,6 +27,5 @@ contract UniswapAdapter is IExchangeAdapter {
 
     // calculate price in wei (price * 10 ** 18)
     price = (token1PriceEth.mul(1 ether)).div(token2PriceEth);
-    emit PriceCalculated(price, token1, token2);
   }
 }
