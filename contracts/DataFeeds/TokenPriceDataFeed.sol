@@ -6,14 +6,25 @@ import "../ExchangeAdapters/IExchangeAdapter.sol";
 contract TokenPriceDataFeed is DataFeedOracleBase {
   address public token1;
   address public token2;
+  IExchangeAdapter public exchangeAdapter;
 
-  function initialize(address _token1, address _token2, address dataSource) public {
+  function initialize(
+    address _token1,
+    address _token2,
+    IExchangeAdapter _exchangeAdapter
+  )
+    public
+  {
     token1 = _token1;
     token2 = _token2;
-    DataFeedOracleBase.initialize(dataSource);
+    exchangeAdapter = _exchangeAdapter;
+
+    // set dataSource to `this` so setResult can only be called from this contract
+    DataFeedOracleBase.initialize(address(this));
   }
 
   function logResult() public {
-    IExchangeAdapter(dataSource).ping(token1, token2);
+    uint price = exchangeAdapter.getPriceForTokenPair(token1, token2);
+    DataFeedOracleBase(this).setResult(bytes32(price), uint256(block.timestamp));
   }
 }
