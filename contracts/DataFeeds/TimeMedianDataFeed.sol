@@ -58,7 +58,7 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
   {
     uint middleIndex = orderedDates.length / 2;
     uint middleDate  = orderedDates[middleIndex];
-    medianValue = results[middleDate];
+    medianValue = resultsByDate[middleDate];
   }
 
   /**
@@ -118,6 +118,6 @@ contract TimeMedianDataFeed is DataFeedOracleBase {
     view
     returns (bool)
   {
-    return uint(results[date1]) < uint(results[date2]);
+    return uint(resultsByDate[date1]) < uint(resultsByDate[date2]);
   }
 }
