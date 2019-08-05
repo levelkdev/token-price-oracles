@@ -28,4 +28,14 @@ contract UniswapAdapter is IExchangeAdapter {
     // calculate price in wei (price * 10 ** 18)
     price = (token1PriceEth.mul(1 ether)).div(token2PriceEth);
   }
+
+  function tokenPairExists(address token1, address token2)
+    public
+    view
+    returns (bool)
+  {
+    return
+      uniswapFactory.getExchange(token1) != address(0) &&
+      uniswapFactory.getExchange(token2) != address(0);
+  }
 }
