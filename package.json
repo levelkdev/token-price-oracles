@@ -43,6 +43,7 @@
   "scripts": {
     "cleanup": "rm -rf build/ && mkdir build",
     "compile": "npm run cleanup && truffle compile --all",
+    "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
     "test": "npm run compile && scripts/test.sh",
     "test:truffle": "truffle test",
     "ganache": "scripts/ganache.sh"
