@@ -15,6 +15,8 @@ contract TokenPriceDataFeed is TimeMedianDataFeed {
   )
     public
   {
+    require(_exchangeAdapter.tokenPairExists(_token1, _token2), 'token pair does not exist');
+
     token1 = _token1;
     token2 = _token2;
     exchangeAdapter = _exchangeAdapter;
