@@ -1,22 +1,22 @@
 const TokenPriceDataFeedFactory = artifacts.require('TokenPriceDataFeedFactory.sol')
 const TokenPriceDataFeed = artifacts.require('TokenPriceDataFeed.sol')
-const UniswapAdapterMock = artifacts.require('UniswapAdapterMock.sol')
+const ExchangeAdapterMock = artifacts.require('ExchangeAdapterMock.sol')
 
 const token1 = '0x19a150a4e966bac5bd0473153f5c526d8fa7d4e7'
 const token2 = '0xa27d79db9c02ab01de0ca0f8468cbad2c578f609'
 
-contract('TokenPriceDataFeedFactory', (accounts) => {
-  let tokenPriceDataFeedFactory, uniswapAdapterMock
+contract('TokenPriceDataFeedFactory', () => {
+  let tokenPriceDataFeedFactory, exchangeAdapterMock
 
   beforeEach(async () => {
-    uniswapAdapterMock = await UniswapAdapterMock.new()
-    tokenPriceDataFeedFactory = await TokenPriceDataFeedFactory.new(uniswapAdapterMock.address)
+    exchangeAdapterMock = await ExchangeAdapterMock.new([token1, token2])
+    tokenPriceDataFeedFactory = await TokenPriceDataFeedFactory.new(exchangeAdapterMock.address)
   })
 
   it('should set the correct exchangeAdapter', async () => {
     expect(
       await tokenPriceDataFeedFactory.exchangeAdapter()
-    ).to.equal(uniswapAdapterMock.address)
+    ).to.equal(exchangeAdapterMock.address)
   })
 
   describe('createTokenPriceDataFeed()', () => {
@@ -39,7 +39,7 @@ contract('TokenPriceDataFeedFactory', (accounts) => {
       })
 
       it('should create a TokenPriceDataFeed with the correct exchange adapter', async () => {
-        expect(await tokenPriceDataFeed.exchangeAdapter()).to.equal(uniswapAdapterMock.address)
+        expect(await tokenPriceDataFeed.exchangeAdapter()).to.equal(exchangeAdapterMock.address)
       })
 
     })

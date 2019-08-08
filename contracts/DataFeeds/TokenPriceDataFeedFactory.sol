@@ -19,8 +19,6 @@ contract TokenPriceDataFeedFactory {
     TokenPriceDataFeed tokenPriceDataFeed = new TokenPriceDataFeed();
     tokenPriceDataFeed.initialize(token1, token2, exchangeAdapter);
 
-    // TODO: require that token1 and token2 exchanges exist
-
     emit TokenPriceDataFeedCreated(address(tokenPriceDataFeed), token1, token2);
   }
 
