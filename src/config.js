@@ -1,5 +1,5 @@
 const fs = require('fs')
-const isLocalNetwork = require('./isLocalNetwork')
+const isLocalNetwork = require('../scripts/isLocalNetwork')
 
 module.exports = function configForEnv (network) {
   if (isLocalNetwork(network)) {

@@ -19,7 +19,7 @@ contract TokenPriceDataFeedFactory {
     address token1,
     address token2
   ) public {
-    require(!tokenPriceDataFeedExists(token1, token2));
+    require(!tokenPriceDataFeedExists(token1, token2), 'cannot add duplicate token price data feed');
 
     TokenPriceDataFeed tokenPriceDataFeed = new TokenPriceDataFeed();
     tokenPriceDataFeed.initialize(token1, token2, exchangeAdapter);
