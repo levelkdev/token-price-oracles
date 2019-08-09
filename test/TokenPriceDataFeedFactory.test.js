@@ -22,7 +22,6 @@ contract('TokenPriceDataFeedFactory', () => {
   })
 
   describe('createTokenPriceDataFeed()', () => {
-
     describe('when given valid parameters', () => {
 
       let tokenPriceDataFeed
@@ -43,7 +42,6 @@ contract('TokenPriceDataFeedFactory', () => {
       it('should create a TokenPriceDataFeed with the correct exchange adapter', async () => {
         expect(await tokenPriceDataFeed.exchangeAdapter()).to.equal(exchangeAdapterMock.address)
       })
-
     })
 
     describe('when executed twice with the same token pair', () => {
@@ -58,7 +56,6 @@ contract('TokenPriceDataFeedFactory', () => {
   })
 
   describe('getTokenPriceDataFeed()', () => {
-
     let tokenPriceDataFeed
 
     beforeEach(async () => {
@@ -76,7 +73,6 @@ contract('TokenPriceDataFeedFactory', () => {
   })
 
   describe('tokenPriceDataFeedExists()', () => {
-
     beforeEach(async () => {
       await tokenPriceDataFeedFactory.createTokenPriceDataFeed(token1, token2)
     })
