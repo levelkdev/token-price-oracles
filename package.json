@@ -41,18 +41,12 @@
     "web3": "1.0.0-beta.35"
   },
   "scripts": {
-    "cleanup": "rm -rf build/ && mkdir build && rm -rf lib/ && mkdir lib",
-    "compile": "npm run cleanup && truffle compile --all && npm run build",
-    "build": "node scripts/build.js",
-    "build-docs": "scripts/buildDocs.sh",
-    "deploy": "npm run cleanup && truffle migrate --reset && npm run build",
-    "deploy-rinkeby": "npm run cleanup && truffle migrate --reset --network rinkeby && npm run build",
-    "test": "npm run build && scripts/test.sh",
+    "cleanup": "rm -rf build/ && mkdir build",
+    "compile": "npm run cleanup && truffle compile --all",
+    "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
+    "test": "npm run compile && scripts/test.sh",
     "test:truffle": "truffle test",
-    "test:coverage": "npm run build && npm run solidity-coverage",
-    "ganache-cli": "scripts/runGanacheCLI.sh",
-    "lint": "standard --verbose | snazzy",
-    "tv": "truffle version"
+    "ganache": "scripts/ganache.sh"
   },
   "description": "tools for creating token price data feeds and oracles that integrate with on-chain dex's",
   "bugs": {

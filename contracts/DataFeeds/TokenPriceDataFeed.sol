@@ -1,9 +1,9 @@
 pragma solidity >=0.4.24;
 
-import "tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
+import "./TimeMedianDataFeed.sol";
 import "../ExchangeAdapters/IExchangeAdapter.sol";
 
-contract TokenPriceDataFeed is DataFeedOracleBase {
+contract TokenPriceDataFeed is TimeMedianDataFeed {
   address public token1;
   address public token2;
   IExchangeAdapter public exchangeAdapter;
@@ -15,6 +15,8 @@ contract TokenPriceDataFeed is DataFeedOracleBase {
   )
     public
   {
+    require(_exchangeAdapter.tokenPairExists(_token1, _token2), 'token pair does not exist');
+
     token1 = _token1;
     token2 = _token2;
     exchangeAdapter = _exchangeAdapter;
@@ -25,6 +27,6 @@ contract TokenPriceDataFeed is DataFeedOracleBase {
 
   function logResult() public {
     uint price = exchangeAdapter.getPriceForTokenPair(token1, token2);
-    DataFeedOracleBase(this).setResult(bytes32(price), uint256(block.timestamp));
+    TimeMedianDataFeed(this).setResult(bytes32(price), uint256(block.timestamp));
   }
 }
