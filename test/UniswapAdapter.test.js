@@ -28,7 +28,8 @@ contract('UniswapAdapter', (accounts) => {
   describe('getPriceForTokenPair()', () => {
     it('returns the correct price for the given token pair', async () => {
       const returnedResult = (
-        await uniswapAdapter.getPriceForTokenPair(token1, token2)).toNumber()
+        await uniswapAdapter.getPriceForTokenPair(token1, token2)
+      ).toNumber()
       const expectedResult = (await getExpectedPrice(uniswapExchangeMock1, uniswapExchangeMock2)).toNumber()
       expect(returnedResult).to.equal(expectedResult)
     })
