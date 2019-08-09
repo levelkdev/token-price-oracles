@@ -45,6 +45,16 @@ contract('TokenPriceDataFeedFactory', () => {
       })
 
     })
+
+    describe('when executed twice with the same token pair', () => {
+      it('should revert', async () => {
+        await tokenPriceDataFeedFactory.createTokenPriceDataFeed(token1, token2)
+        await expectRevert.unspecified (
+          tokenPriceDataFeedFactory.createTokenPriceDataFeed(token1, token2),
+          'cannot create duplicate TokenPriceDataFeed'
+        )
+      })
+    })
   })
 
   describe('getTokenPriceDataFeed()', () => {
@@ -81,15 +91,4 @@ contract('TokenPriceDataFeedFactory', () => {
         .to.equal(false)
     })
   })
-
-  describe('when executed twice with the same token pair', () => {
-    it('should revert', async () => {
-      await tokenPriceDataFeedFactory.createTokenPriceDataFeed(token1, token2)
-      await expectRevert.unspecified (
-        tokenPriceDataFeedFactory.createTokenPriceDataFeed(token1, token2),
-        'cannot create duplicate TokenPriceDataFeed'
-      )
-    })
-  })
-
 })
