@@ -22,7 +22,7 @@ contract TokenPriceDataFeed is TimeMedianDataFeed {
     exchangeAdapter = _exchangeAdapter;
 
     // set dataSource to `this` so setResult can only be called from this contract
-    initialize(address(this));
+    DataFeedOracleBase.initialize(address(this));
   }
 
   function logResult() public {
