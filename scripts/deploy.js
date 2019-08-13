@@ -1,4 +1,4 @@
-const config = require('./config')
+const config = require('../src/config')
 
 const globalArtifacts = this.artifacts // Not injected unless called directly via truffle
 const network = process.argv[5]
@@ -31,10 +31,6 @@ module.exports = async (
 
     if (typeof truffleExecCallback === 'function') {
       truffleExecCallback()
-    } else {
-      return {
-        uniswapAdapterAddress: uniswapAdapter.address
-      }
     }
   } catch (err) {
     console.log('Error in scripts/deploy.js: ', err)

@@ -31,6 +31,7 @@
     "cross-env": "^5.1.4",
     "ganache-cli": "^6.1.6",
     "lk-test-helpers": "^0.1.3",
+    "lodash": "^4.17.15",
     "openzeppelin-test-helpers": "0.1.2",
     "snazzy": "^7.1.1",
     "solidity-coverage": "^0.5.5",
@@ -38,12 +39,15 @@
     "standard": "^10.0.3",
     "tidbit": "github:cwhinfrey/tidbit#57fdff80868a51a8bee52646874753026efbf67f",
     "truffle": "4.1.15",
-    "web3": "1.0.0-beta.35"
+    "web3": "1.0.0-beta.35",
+    "web3-utils": "^1.2.1"
   },
   "scripts": {
     "cleanup": "rm -rf build/ && mkdir build",
     "compile": "npm run cleanup && truffle compile --all",
+    "createPriceFeed:rinkeby": "truffle exec scripts/createPriceFeed.js --network rinkeby",
     "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
+    "logPrice:rinkeby": "truffle exec scripts/logPrice.js --network rinkeby",
     "test": "npm run compile && scripts/test.sh",
     "test:truffle": "truffle test",
     "ganache": "scripts/ganache.sh"

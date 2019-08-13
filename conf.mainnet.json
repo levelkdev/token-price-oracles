@@ -1,0 +1,133 @@
+{
+  "uniswapFactory": "0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95",
+  "uniswapAdapter": "",
+  "tokenPriceDataFeedFactory": "",
+  "tokens": [
+    {
+      "symbol": "RDN",
+      "name": "Raiden Token",
+      "address": "0x255aa6df07540cb5d3d297f0d0d4d84cb52bc8e6",
+      "decimals": 18
+    },
+    {
+      "symbol": "OMG",
+      "name": "OMGToken",
+      "address": "0xd26114cd6ee289accf82350c8d8487fedb8a0c07",
+      "decimals": 18
+    },
+    {
+      "symbol": "KNC",
+      "name": "Kyber Network Crystal",
+      "address": "0xdd974d5c2e2928dea5f71b9825b8b646686bd200",
+      "decimals": 18
+    },
+    {
+      "symbol": "GEN",
+      "name": "DAOstack",
+      "address": "0x543ff227f64aa17ea132bf9886cab5db55dcaddf",
+      "decimals": 18
+    },
+    {
+      "symbol": "MKR",
+      "name": "Maker",
+      "address": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2",
+      "decimals": 18
+    },
+    {
+      "symbol": "DAI",
+      "name": "Dai Stablecoin v1.0",
+      "address": "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+      "decimals": 18
+    },
+    {
+      "symbol": "GNO",
+      "name": "Gnosis Token",
+      "address": "0x6810e776880c02933d47db1b9fc05908e5386b96",
+      "decimals": 18
+    },
+    {
+      "symbol": "BNT",
+      "name": "Bancor Network Token",
+      "address": "0x1f573d6fb3f13d689ff844b4ce37794d79a7ff1c",
+      "decimals": 18
+    },
+    {
+      "symbol": "ZRX",
+      "name": "0x Protocol Token",
+      "address": "0xe41d2489571d322189246dafa5ebde1f4699f498",
+      "decimals": 18
+    },
+    {
+      "symbol": "SNT",
+      "name": "Status Network Token",
+      "address": "0x744d70fdbe2ba4cf95131626614a1763df805b9e",
+      "decimals": 18
+    },
+    {
+      "symbol": "REQ",
+      "name": "Request Token",
+      "address": "0x8f8221afbb33998d8584a2b05749ba73c37a938a",
+      "decimals": 18
+    },
+    {
+      "symbol": "ST",
+      "name": "Simple Token",
+      "address": "0x2c4e8f2d746113d0696ce89b35f0d8bf88e0aeca",
+      "decimals": 18
+    },
+    {
+      "symbol": "LRC",
+      "name": "LoopringCoin V2",
+      "address": "0xbbbbca6a901c926f240b89eacb641d8aec7aeafd",
+      "decimals": 18
+    },
+    {
+      "symbol": "OCEAN",
+      "name": "OceanToken",
+      "address": "0x985dd3d42de1e256d09e1c10f112bccb8015ad41",
+      "decimals": 18
+    },
+    {
+      "symbol": "BAT",
+      "name": "Basic Attention Token",
+      "address": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
+      "decimals": 18
+    },
+    {
+      "symbol": "REP",
+      "name": "Reputation",
+      "address": "0x1985365e9f78359a9b6ad760e32412f4a445e862",
+      "decimals": 18
+    },
+    {
+      "symbol": "LOOM",
+      "name": "LoomToken",
+      "address": "0xa4e8c3ec456107ea67d3075bf9e3df3a75823db0",
+      "decimals": 18
+    },
+    {
+      "symbol": "MANA",
+      "name": "Decentraland MANA",
+      "address": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
+      "decimals": 18
+    },
+    {
+      "symbol": "ANT",
+      "name": "Aragon Network Token",
+      "address": "0x960b236a07cf122663c4303350609a66a7b288c0",
+      "decimals": 18
+    },
+    {
+      "symbol": "LINK",
+      "name": "ChainLink Token",
+      "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+      "decimals": 18
+    },
+    {
+      "symbol": "NMR",
+      "name": "Numeraire",
+      "address": "0x1776e1f26f98b1a5df9cd347953a26dd3cb46671",
+      "decimals": 18
+    }
+  ]
+}
