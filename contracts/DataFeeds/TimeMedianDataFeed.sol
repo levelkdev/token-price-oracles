@@ -1,10 +1,10 @@
 pragma solidity ^0.4.24;
 
 import "tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../TPSafeMath.sol";
 
 contract TimeMedianDataFeed is DataFeedOracleBase {
-  using SafeMath for uint;
+  using TPSafeMath for uint;
 
   function medianizeByTimeframe(uint startDate, uint endDate)
     public

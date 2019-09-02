@@ -1,12 +1,12 @@
 pragma solidity >=0.4.24;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "../TPSafeMath.sol";
 import "./IExchangeAdapter.sol";
 import "./Uniswap/UniswapExchangeInterface.sol";
 import "./Uniswap/UniswapFactoryInterface.sol";
 
 contract UniswapAdapter is IExchangeAdapter {
-  using SafeMath for uint;
+  using TPSafeMath for uint;
 
   UniswapFactoryInterface public uniswapFactory;
 
