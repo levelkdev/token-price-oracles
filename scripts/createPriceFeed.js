@@ -21,7 +21,7 @@ module.exports = async (callback) => {
       throw new Error(`No token found in conf.${network}.json for ${tokenSymbol2}`)
     }
 
-    console.log(`Creating price feed for <${token1.symbol}:${token1.address}>/<${token2.symbol}:${token1.address}>...`)
+    console.log(`Creating price feed for <${token1.symbol}:${token1.address}>/<${token2.symbol}:${token2.address}>...`)
     const { logs } = await priceFeedFactory.createTokenPriceDataFeed(token1.address, token2.address)
     const priceFeedAddress = logs[0].args.tokenPriceDataFeed
     console.log('Price feed created: ', priceFeedAddress)
