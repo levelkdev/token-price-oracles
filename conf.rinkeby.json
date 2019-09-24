@@ -1,7 +1,7 @@
 {
   "uniswapFactory": "0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36",
-  "uniswapAdapter": "0xc0af4f74ad324feeec031c7fa90b9bc68aa2e7b4",
-  "tokenPriceDataFeedFactory": "0x485788856af964f5f3a760d9221e526f2f7096f8",
+  "uniswapAdapter": "0xe639c84b4797004a4a6792b0076ce69358329ed4",
+  "tokenPriceDataFeedFactory": "0x9d93aa5653850b057a7ad14cb2ba135902c3d19d",
   "tokens": [
     {
       "symbol": "RDN",
@@ -19,6 +19,18 @@
       "symbol": "GNO",
       "name": "Gnosis",
       "address": "0xd0dab4e640d95e9e8a47545598c33e31bdb53c7c",
+      "decimals": 18
+    },
+    {
+      "symbol": "MKR",
+      "name": "Maker",
+      "address": "0xf9ba5210f91d0474bd1e1dcdaec4c58e359aad85",
+      "decimals": 18
+    },
+    {
+      "symbol": "DAI",
+      "name": "Dai",
+      "address": "0x2448ee2641d78cc42d7ad76498917359d961a783",
       "decimals": 18
     }
   ]
