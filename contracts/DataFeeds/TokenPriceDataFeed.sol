@@ -25,8 +25,18 @@ contract TokenPriceDataFeed is TimeMedianDataFeed {
     DataFeedOracleBase.initialize(address(this));
   }
 
+  /**
+  * @dev logs current exchange price in dataFeed at current block timestamp
+  */
   function logResult() public {
     uint price = exchangeAdapter.getPriceForTokenPair(token1, token2);
     TimeMedianDataFeed(this).setResult(bytes32(price), uint256(block.timestamp));
+  }
+
+  /**
+  * @dev returns the value of the current price according to the exchange
+  */
+  function viewCurrentResult() public view returns (bytes32) {
+    return bytes32(exchangeAdapter.getPriceForTokenPair(token1, token2));
   }
 }

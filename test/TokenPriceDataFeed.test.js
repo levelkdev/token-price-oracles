@@ -66,4 +66,13 @@ contract('TokenPriceDataFeed', () => {
       )
     })
   })
+
+  describe('viewCurrentResult()', () => {
+    it('returns the current price reported by the exchange adapter in bytes32', async () => {
+      await tokenPriceDataFeed.initialize(token1, token2, exchangeAdapterMock.address)
+      const returnedPrice = await tokenPriceDataFeed.viewCurrentResult()
+      const actualPrice = await uintToBytes32(1)
+      expect(returnedPrice).to.equal(actualPrice)
+    })
+  })
 })
