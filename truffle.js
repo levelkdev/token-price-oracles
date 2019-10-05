@@ -57,6 +57,13 @@ module.exports = {
       network_id: '*',
       gas: 6000000,
       gasPrice: 30 * 10 ** 9,
+    },
+    rpc: {
+      network_id: '*',
+      host: 'localhost',
+      port: 8545,
+      gas: 6.9e6,
+      gasPrice: 15000000001
     }
   },
   compilers: {

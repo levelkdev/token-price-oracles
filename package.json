@@ -47,6 +47,7 @@
     "compile": "npm run cleanup && truffle compile --all",
     "createPriceFeed:rinkeby": "truffle exec scripts/createPriceFeed.js --network rinkeby",
     "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
+    "deploy:local": "truffle exec scripts/deployLocal.js --network rpc",
     "logPrice:rinkeby": "truffle exec scripts/logPrice.js --network rinkeby",
     "test": "npm run compile && scripts/test.sh",
     "test:truffle": "truffle test",
