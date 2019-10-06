@@ -1,7 +1,7 @@
 {
   "uniswapFactory": "0xf5D915570BC477f9B8D6C0E980aA81757A3AaC36",
-  "uniswapAdapter": "0xf7ed3e2d5e6dc811dc69b5b93a72c416d919cdcc",
-  "tokenPriceDataFeedFactory": "0xef6f3b4b5db13e436619d7a3aae4e5c77d75106f",
+  "uniswapAdapter": "0xa90a47f3941e9b47bdbb71cdeea477bd569e124d",
+  "tokenPriceDataFeedFactory": "0x034a2efc1025589141c0646c28544ffa7adb3eda",
   "tokens": [
     {
       "symbol": "RDN",
