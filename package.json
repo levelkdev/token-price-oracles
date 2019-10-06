@@ -49,6 +49,7 @@
     "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
     "deploy:local": "truffle exec scripts/deployLocal.js --network rpc",
     "logPrice:rinkeby": "truffle exec scripts/logPrice.js --network rinkeby",
+    "setMockPrice": "truffle exec scripts/setMockPrice.js --network rpc",
     "test": "npm run compile && scripts/test.sh",
     "test:truffle": "truffle test",
     "ganache": "scripts/ganache.sh"

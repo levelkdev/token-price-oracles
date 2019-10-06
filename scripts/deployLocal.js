@@ -6,7 +6,6 @@ const network = process.argv[5]
 const TOKEN_1 = '0x0000000000000000000000000000000000000001'
 const TOKEN_2 = '0x0000000000000000000000000000000000000002'
                 
-
 module.exports = async (
   truffleExecCallback,
   {
@@ -29,7 +28,7 @@ module.exports = async (
 
     console.log(`tokenPriceDataFeedFactory.createTokenPriceDataFeed(${TOKEN_1}, ${TOKEN_2})`)
     const receipt = await tokenPriceDataFeedFactory.createTokenPriceDataFeed(TOKEN_1, TOKEN_2)
-    console.log('tokenPrieDataFeed: ', receipt.logs[0].args.tokenPriceDataFeed)
+    console.log('tokenPriceDataFeed: ', receipt.logs[0].args.tokenPriceDataFeed)
 
     if (typeof truffleExecCallback === 'function') {
       truffleExecCallback()
