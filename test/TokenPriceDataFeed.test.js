@@ -13,6 +13,7 @@ contract('TokenPriceDataFeed', () => {
   beforeEach(async () => {
     tokenPriceDataFeed = await TokenPriceDataFeed.new()
     exchangeAdapterMock = await ExchangeAdapterMock.new([token1, token2])
+    await exchangeAdapterMock.setPriceForTokenPair(token1, token2, 1)
   })
 
   describe('initialize', () => {
