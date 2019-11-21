@@ -46,6 +46,7 @@
     "cleanup": "rm -rf build/ && mkdir build",
     "compile": "npm run cleanup && truffle compile --all",
     "createPriceFeed:rinkeby": "truffle exec scripts/createPriceFeed.js --network rinkeby",
+    "createPriceFeed:mainnet": "truffle exec scripts/createPriceFeed.js --network mainnet",
     "deploy:rinkeby": "truffle exec scripts/deploy.js --network rinkeby",
     "deploy:mainnet": "truffle exec scripts/deploy.js --network mainnet",
     "deploy:local": "truffle exec scripts/deployLocal.js --network rpc",
