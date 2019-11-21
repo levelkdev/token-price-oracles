@@ -1,7 +1,14 @@
 {
   "uniswapFactory": "0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95",
-  "uniswapAdapter": "",
-  "tokenPriceDataFeedFactory": "",
+  "uniswapAdapter": "0x0e201ba770be52c2fd53b007284b8e552d3e66c9",
+  "tokenPriceDataFeedFactory": "0xffc3ddca9dc17c8e780d6f0ae3c91ab00ec0d38e",
+  "priceFeeds": [
+    {
+      "token1": "ANT",
+      "token2": "DAI",
+      "address": "0xea6927256b03e852fae6fd72e72f66fa862d7640"
+    }
+  ],
   "tokens": [
     {
       "symbol": "RDN",
