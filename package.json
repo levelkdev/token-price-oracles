@@ -37,7 +37,7 @@
     "solidity-coverage": "^0.5.5",
     "solidity-docgen": "^0.1.0",
     "standard": "^10.0.3",
-    "tidbit": "github:cwhinfrey/tidbit#e4ce37aa7edee86b89a64ac81a645bf3d82bf555",
+    "@levelk/tidbit": "0.1.1",
     "truffle": "4.1.15",
     "web3": "1.0.0-beta.35",
     "web3-utils": "^1.2.1"
