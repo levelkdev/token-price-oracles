@@ -1,5 +1,5 @@
 {
-  "name": "token-price-oracles",
+  "name": "@levelk/token-price-oracles",
   "version": "0.1.2",
   "license": "MIT",
   "files": [
@@ -73,5 +73,9 @@
     "prices",
     "datafeed"
   ],
-  "author": "levelk"
+  "author": "levelk",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  }
 }
