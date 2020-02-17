@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
+import "@levelk/tidbit/contracts/DataFeedOracles/DataFeedOracleBase.sol";
 import "../TPSafeMath.sol";
 
 contract TimeMedianDataFeed is DataFeedOracleBase {
